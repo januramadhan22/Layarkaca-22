@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import App from "./pages/App";
 import Home from "./pages";
-import Favorites from "./pages/favorites";
-import DetailMovie from "./pages/detail-mov";
+import Favorites from "./pages/Favorites";
+import DetailMovie from "./pages/DetailMovie";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <DetailMovie />
+    <Home />
   </React.StrictMode>
 );

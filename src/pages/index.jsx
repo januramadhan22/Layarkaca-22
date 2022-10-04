@@ -9,12 +9,14 @@ import {
   AddToFavorite,
 } from "../components/Button";
 import { Card } from "../components/Card";
+import Loading from "../components/Loading";
 import { data } from "autoprefixer";
 
 class Home extends Component {
   state = {
     title: "BRAND NAME",
     datas: [],
+    skeleton: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     loading: true,
   };
 
@@ -34,7 +36,13 @@ class Home extends Component {
       };
       dataTemp.push(temp);
     }
-    this.setState({ datas: dataTemp });
+    setTimeout(() => {
+      this.setState({
+        loading: false,
+        datas: dataTemp,
+        title: "WELCOME GUYS!",
+      });
+    }, 3000);
   }
 
   render() {
@@ -45,9 +53,13 @@ class Home extends Component {
           {/* {this.state.title} */}
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 items-center justify-center gap-8 mx-8 mb-8">
-          {this.state.datas.map((data) => (
-            <Card key={data.id} image={data.image} title={data.title} />
-          ))}
+          {this.state.loading
+            ? this.state.skeleton.map(
+                (item) => <Loading key={item} /> // Self Closing tag
+              )
+            : this.state.datas.map((data) => (
+                <Card key={data.id} image={data.image} title={data.title} />
+              ))}
         </div>
       </Container>
     );

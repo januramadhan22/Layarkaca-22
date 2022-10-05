@@ -60,4 +60,20 @@ export class Play extends Component {
   }
 }
 
+export class LoadMore extends Component {
+  render() {
+    return (
+      <div>
+        <button
+          href="#"
+          className="px-10 py-1 rounded-md bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800 mt-5"
+          onClick={this.props.onClick}
+        >
+          {this.props.label}
+        </button>
+      </div>
+    );
+  }
+}
+
 // export { favoriteButton, searchButton };

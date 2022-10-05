@@ -16,7 +16,7 @@ export class Card extends Component {
             alt={this.props.title}
             className="rounded-md"
           />
-          <p className="font-semibold">{this.props.title}</p>
+          <p className="font-semibold text-alta-primary">{this.props.title}</p>
           <AddToFavorite />
         </div>
       </div>

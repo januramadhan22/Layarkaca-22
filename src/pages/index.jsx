@@ -31,7 +31,7 @@ class Home extends Component {
     this.setState({ loading: true });
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=72965ba087b3eda28dee38dfede7038d&page=${this.state.page}`
+        `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB_KEY}&page=${this.state.page}`
       )
       .then((res) => {
         const { results } = res.data;

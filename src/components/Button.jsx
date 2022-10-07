@@ -16,16 +16,16 @@ export class FavoriteButton extends Component {
   }
 }
 
-export class HomeButton extends Component {
+export class Favorite extends Component {
   render() {
     return (
       <div>
-        <a
-          href="#"
-          className="text-lg text-white hover:underline hover:underline-offset-4 decoration-sky-400"
+        <button
+          onClick={this.props.onClick}
+          className="px-16 py-2 rounded bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800"
         >
-          Home
-        </a>
+          Favorite
+        </button>
       </div>
     );
   }
@@ -36,7 +36,7 @@ export class AddToFavorite extends Component {
     return (
       <div>
         <button
-          href="#"
+          onClick={this.props.onClick}
           className="px-16 py-2 rounded bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800"
         >
           Add to favorite
@@ -65,11 +65,25 @@ export class LoadMore extends Component {
     return (
       <div>
         <button
-          href="#"
           className="px-10 py-1 rounded-md bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800 mt-5"
           onClick={this.props.onClick}
         >
           {this.props.label}
+        </button>
+      </div>
+    );
+  }
+}
+
+export class RemoveButton extends Component {
+  render() {
+    return (
+      <div>
+        <button
+          className="px-10 py-2 rounded-md bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800 mt-5"
+          onClick={this.props.onClick}
+        >
+          Remove
         </button>
       </div>
     );

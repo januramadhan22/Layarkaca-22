@@ -1,14 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
-import App from "./pages/App";
-import Home from "./pages";
+// import App from "./pages/App";
+
+import App from "./routes";
+
 import Favorites from "./pages/Favorites";
 import DetailMovie from "./pages/DetailMovie";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Home />
+    <App />
   </React.StrictMode>
 );

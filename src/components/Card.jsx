@@ -5,22 +5,22 @@ import {
   AddToFavorite,
   Play,
   RemoveButton,
-} from "../components/Button";
+} from "components/Button";
 
 export class Card extends Component {
   render() {
     return (
       <div className="flex justify-center">
-        <div
-          onClick={this.props.onNavigate}
-          className="w-auto h-auto p-5 flex flex-col items-center justify-between text-center gap-5 border-4 border-slate-700 rounded-md p-5 bg-slate-200 shadow-lg shadow-slate-400 hover:shadow-sm hover:bg-amber-100 hover:bg-opacity-50 hover:border-amber-600 cursor-pointer"
-        >
+        <div className="w-auto h-auto p-5 flex flex-col items-center justify-between text-center gap-5 border-4 border-slate-700 rounded-md p-5 bg-slate-200 shadow-lg shadow-slate-400 hover:shadow-sm hover:bg-amber-100 hover:bg-opacity-50 hover:border-amber-600 cursor-pointer">
           <img
+            onClick={this.props.onNavigate}
             src={`https://image.tmdb.org/t/p/w500${this.props.image}`}
             alt={this.props.title}
-            className="rounded-md"
+            className=" rounded-md"
           />
-          <p className="font-semibold text-alta-primary">{this.props.title}</p>
+          <p className="font-semibold text-md text-alta-primary">
+            {this.props.title}
+          </p>
           <AddToFavorite onClick={this.props.addFavorite} />
         </div>
       </div>
@@ -40,41 +40,10 @@ export class FavoriteCard extends Component {
             alt={this.props.title}
             className="rounded-md"
           />
-          <p className="font-semibold text-alta-primary">{this.props.title}</p>
+          <p className="font-semibold text-md text-alta-primary">
+            {this.props.title}
+          </p>
           <RemoveButton onClick={this.props.removeButton} />
-        </div>
-      </div>
-    );
-  }
-}
-
-export class Heroes extends Component {
-  render() {
-    return (
-      <div className="w-full flex justify-center">
-        <div className="w-9/12 h-auto p-5 flex items-center justify-center text-center gap-5 border-4 border-slate-700 rounded-md p-5 bg- shadow-lg shadow-slate-400 bg-cover bg-opacity-10 bg-gradient-to-r from-slate-200 to-white">
-          <img
-            src={this.props.image}
-            alt={this.props.title}
-            className="w-1/3 rounded-md"
-          />
-          <div className="text-left">
-            <p className="font-bold text-4xl">{this.props.title}</p>
-            <p className="my-2">
-              <strong>Durasi:</strong> {this.props.duration} min
-            </p>
-            <p className="my-2">
-              <strong>Release:</strong> {this.props.releaseDate}
-            </p>
-            <p className="my-2">
-              <strong>Genre:</strong> {this.props.genre}
-            </p>
-            <p className="my-2">
-              <strong>Overview:</strong>
-              <br /> {this.props.overview}
-            </p>
-            <Play />
-          </div>
         </div>
       </div>
     );

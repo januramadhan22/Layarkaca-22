@@ -2,19 +2,22 @@ import { useState, useEffect } from "react";
 import "../styles/App.css";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
-import { WithRouter } from "../utils/Navigation";
+import { FaBeer } from "react-icons/fa";
 
-import Container from "../components/Container";
+import { Link } from "react-router-dom";
+import { WithRouter } from "utils/Navigation";
+import { useTitle } from "utils/hooks/useTitle";
+
+import Container from "components/Container";
 import {
   FavoriteButton,
   HomeButton,
   AddToFavorite,
   LoadMore,
   Favorite,
-} from "../components/Button";
-import { Card } from "../components/Card";
-import Loading from "../components/Loading";
+} from "components/Button";
+import { Card } from "components/Card";
+import Loading from "components/Loading";
 
 function App(props) {
   // CONSTRUCTOR START
@@ -22,6 +25,7 @@ function App(props) {
   const [skeleton] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  useTitle("Layar Kaca 12");
   // CONSTRUCTOR END
 
   useEffect(() => {
@@ -36,7 +40,6 @@ function App(props) {
       )
       .then((res) => {
         const { results } = res.data;
-        // console.log(results);
         const newPage = page + 1;
         const temp = [...datas];
         temp.push(...results);
@@ -115,9 +118,6 @@ function App(props) {
           onClick={() => fetchData()}
           className="text-center"
         />
-        <Link to="/favorites">
-          <Favorite />
-        </Link>
       </div>
     </Container>
   );

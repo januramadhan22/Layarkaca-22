@@ -1,63 +1,55 @@
-import { Component } from "react";
-import "../styles/App.css";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import "styles/App.css";
 
-import { WithRouter } from "../utils/Navigation";
+import { useFetchGet } from "utils/hooks/useFetchGet";
+import { useTitle } from "utils/hooks/useTitle";
+import { WithRouter } from "utils/Navigation";
 
-import Container from "../components/Container";
+import Container from "components/Container";
 import {
   FavoriteButton,
   HomeButton,
   AddToFavorite,
-} from "../components/Button";
-import { Card, Heroes } from "../components/Card";
-import { data } from "autoprefixer";
+  Play,
+} from "components/Button";
 
-class DetailMovie extends Component {
-  state = {
-    data: {},
-    loading: true,
-  };
+const DetailMovie = (props) => {
+  const { id_movie } = props.params;
+  const [data] = useFetchGet(
+    `https://api.themoviedb.org/3/movie/${id_movie}?api_key=${process.env.REACT_APP_TMDB_KEY}`
+  );
+  useTitle(`${data.title} - Layar Kaca 12`);
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData() {
-    const { id_movie } = this.props.params;
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id_movie}?api_key=${process.env.REACT_APP_TMDB_KEY}`
-      )
-      .then((res) => {
-        const { data } = res;
-        this.setState({ data });
-      })
-      .catch((err) => {
-        alert(err.toString());
-      })
-      .finally(() => {
-        this.setState({ loading: false });
-      });
-  }
-
-  render() {
-    return (
-      <Container>
-        <div className="w-full flex items-center justify-center my-16">
-          <Heroes
-            key={this.state.data.id}
-            image={`https://image.tmdb.org/t/p/w500${this.state.data.poster_path}`}
-            title={this.state.data.title}
-            releaseDate={this.state.data.release_date}
-            duration={this.state.data.runtime}
-            genre={this.state.data.genre}
-            overview={this.state.data.overview}
+  return (
+    <Container key={data.id}>
+      <div className="w-full flex justify-center my-10 ">
+        <div className="w-9/12 h-auto p-5 flex flex-col md:flex-row items-center justify-center text-center gap-8 border-4 border-slate-700 rounded-md p-5 bg- shadow-lg shadow-slate-400 bg-cover bg-opacity-10 bg-gradient-to-r from-slate-200 to-white">
+          <img
+            src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+            alt={data.title}
+            className="w-72 rounded-md"
           />
+          <div className="text-center md:text-left">
+            <p className="font-bold text-6xl">{data.title}</p>
+            <p className="my-2">
+              <strong>Durasi:</strong> {data.runtime} min
+            </p>
+            <p className="my-2">
+              <strong>Release:</strong> {data.release_date}
+            </p>
+            <p className="my-2">
+              <strong>Genre:</strong> {data.genre}
+            </p>
+            <p className="my-2">
+              <strong>Overview:</strong>
+              <br /> {data.overview}
+            </p>
+            <Play />
+          </div>
         </div>
-      </Container>
-    );
-  }
-}
+      </div>
+    </Container>
+  );
+};
 
 export default WithRouter(DetailMovie);

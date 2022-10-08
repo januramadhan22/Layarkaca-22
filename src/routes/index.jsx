@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Favorite } from "../components/Button";
+import { Favorite } from "components/Button";
 
-import Home from "../pages";
-import Detail from "../pages/DetailMovie";
-import Favorites from "../pages/Favorites";
+import Home from "pages";
+import Detail from "pages/DetailMovie";
+import Favorites from "pages/Favorites";
 
 function App() {
   return (

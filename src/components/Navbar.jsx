@@ -1,14 +1,18 @@
 import React, { Component } from "react";
+import { FaBeer, FaUserCircle } from "react-icons/fa";
 import { HiUserCircle, HiSearch } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   render() {
     return (
       <div className="navbar bg-alta-primary shadow-md shadow-slate-500 sticky top-0">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl text-white">
-            daisyUI
-          </a>
+          <Link to="/">
+            <a className="btn btn-ghost normal-case text-xl text-white">
+              Brand Name
+            </a>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="form-control">
@@ -19,9 +23,9 @@ class Navbar extends Component {
             />
           </div>
           <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
+            <label tabIndex={0} className="btn btn-ghost btn-circle">
+              <div className=" rounded-full">
+                <FaUserCircle className="text-4xl text-white" />
               </div>
             </label>
             <ul
@@ -35,7 +39,9 @@ class Navbar extends Component {
                 </a>
               </li>
               <li>
-                <a>Settings</a>
+                <Link to="/favorites">
+                  <a>Favorites</a>
+                </Link>
               </li>
               <li>
                 <a>Logout</a>

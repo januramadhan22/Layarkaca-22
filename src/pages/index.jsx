@@ -94,11 +94,10 @@ function App(props) {
   return (
     <Container>
       <div className="flex flex-col items-center my-5">
-        <h1 className="w-full p-12 text-center text-5xl font-semibold text-slate-800">
+        <h1 className="w-full p-12 text-center text-5xl font-semibold text-slate-800 dark:text-amber-400">
           Now Playing Movies
-          {/* {this.state.title} */}
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 items-center justify-center gap-8 mx-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6 items-center justify-center gap-2 md:gap-8 mx-2 md:mx-8 mb-8">
           {loading
             ? skeleton.map(
                 (item) => <Loading key={item} /> // Self Closing tag

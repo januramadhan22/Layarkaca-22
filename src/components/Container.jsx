@@ -7,7 +7,7 @@ import Navbar from "./Navbar";
 class Container extends Component {
   render() {
     return (
-      <div className="w-full h-screen overflow-auto">
+      <div className="w-full h-screen overflow-auto bg-white dark:bg-slate-800">
         <Navbar />
         {/* <nav className="w-full h-16 px-4 md:px-12 flex items-center justify-between bg-slate-700 shadow-md shadow-slate-400 sticky top-0">
           <h1 className="text-white text-xl md:text-3xl font-semibold font-sans">

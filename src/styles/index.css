@@ -19,15 +19,14 @@ code {
 /* ::-webkit-scrollbar {
   width: 0.55rem;
   height: 0.55rem;
-  background-color: transparent;
 }
 
 ::-webkit-scrollbar-track {
   border-radius: 0.75rem;
-  background-color: transparent;
+  background-color: #686c72;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 0.75rem;
-  background-color: darkgray;
+  border-radius: 0.15rem;
+  background-color: #1a2230;
 } */

@@ -11,7 +11,7 @@ import { FavoriteCard } from "components/Card";
 function Favorites() {
   const favorites = useSelector((state) => state.data.favorites);
   const dispatch = useDispatch();
-  useTitle("My Favorite Movies - Layar Kaca 12");
+  useTitle("My Favorite Movies - Layar Kaca 22");
 
   function handleRemove() {
     // const list = [...datas];

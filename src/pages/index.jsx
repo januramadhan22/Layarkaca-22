@@ -112,11 +112,7 @@ function App(props) {
                 />
               ))}
         </div>
-        <LoadMore
-          label="Load More"
-          onClick={() => fetchData()}
-          className="text-center"
-        />
+        <LoadMore onClick={() => fetchData()} className="text-center" />
       </div>
     </Container>
   );

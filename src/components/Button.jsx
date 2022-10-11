@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import favorites from "../assets/favorites.png";
+import favorites from "assets/favorites.png";
+import { IoIosArrowDown } from "react-icons/io";
 
 export class FavoriteButton extends Component {
   render() {
@@ -50,10 +51,11 @@ export class LoadMore extends Component {
     return (
       <div>
         <button
-          className="px-10 py-2 rounded-md bg-slate-800 text-white font-semibold border-2 hover:bg-white hover:border-2 hover:border-slate-800 hover:text-slate-800  dark:border-amber-400 dark:text-amber-400 dark:hover:bg-black mt-5"
+          className=" text-slate-500 font-semibold  hover:text-alta-primary  dark:text-amber-200 hover:dark:text-amber-400   mt-5 flex flex-col items-center animate-bounce"
           onClick={this.props.onClick}
         >
-          {this.props.label}
+          <IoIosArrowDown className="text-4xl" />
+          <IoIosArrowDown className="text-6xl -mt-8" />
         </button>
       </div>
     );

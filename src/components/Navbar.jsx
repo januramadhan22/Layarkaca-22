@@ -4,7 +4,6 @@ import { BiSearchAlt } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 import { ThemeContext } from "utils/context";
-import { DarkMode } from "./Button";
 
 const Navbar = ({ children }) => {
   const { isLight, setIsLight } = useContext(ThemeContext);
@@ -40,24 +39,26 @@ const Navbar = ({ children }) => {
             className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
           >
             <li>
-              <a
-                className="focus:bg-slate-700"
-                label={isLight ? "Light Mode" : "Dark Mode"}
-                onClick={() => setIsLight(!isLight)}
-              >
-                Dark Mode
-              </a>
+              <label className="swap text-left">
+                <input
+                  className="w-auto text-left"
+                  type="checkbox"
+                  label={isLight ? "Light Mode" : "Dark Mode"}
+                  onClick={() => setIsLight(!isLight)}
+                />
+                <div className="swap-on text-left">Dark Mode ON</div>
+                <div className="swap-off ">Dark Mode OFF</div>
+              </label>
             </li>
             <li>
               <Link to="/favorites">
-                <a className="w-full flex justify-between">
-                  Favorites
-                  <span className="badge">New</span>
-                </a>
+                <a className="w-full text-center">Favorites</a>
               </Link>
             </li>
             <li>
-              <a>Logout</a>
+              <Link to="/">
+                <a className="w-full text-center">Logout</a>
+              </Link>
             </li>
           </ul>
         </div>

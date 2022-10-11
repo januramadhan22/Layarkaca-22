@@ -18,7 +18,7 @@ const DetailMovie = (props) => {
   const [data] = useFetchGet(
     `https://api.themoviedb.org/3/movie/${id_movie}?api_key=${process.env.REACT_APP_TMDB_KEY}`
   );
-  useTitle(`${data.title} - Layar Kaca 12`);
+  useTitle(`${data.title} - Layar Kaca 22`);
 
   return (
     <Container key={data.id}>

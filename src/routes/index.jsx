@@ -1,14 +1,16 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Favorite } from "components/Button";
+import { useDispatch } from "react-redux";
 
 import Home from "pages";
 import Detail from "pages/DetailMovie";
 import Favorites from "pages/Favorites";
 
 import { ThemeContext } from "utils/context";
+import { setFavorites } from "utils/redux/reducer/reducer";
 
 function App() {
+  const dispatch = useDispatch();
   const [isLight, setIsLight] = useState(true);
   const theme = useMemo(() => ({ isLight, setIsLight }), [isLight]);
 
@@ -19,6 +21,13 @@ function App() {
       document.documentElement.classList.add("dark");
     }
   }, [isLight]);
+
+  useEffect(() => {
+    const getMovies = localStorage.getItem("favMovies");
+    if (getMovies) {
+      dispatch(setFavorites(JSON.parse(getMovies)));
+    }
+  }, []);
 
   return (
     <ThemeContext.Provider value={theme}>

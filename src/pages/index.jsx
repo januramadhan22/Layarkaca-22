@@ -1,26 +1,21 @@
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import "../styles/App.css";
 import axios from "axios";
 
-import { FaBeer } from "react-icons/fa";
-
-import { Link } from "react-router-dom";
 import { WithRouter } from "utils/Navigation";
 import { useTitle } from "utils/hooks/useTitle";
+import { setFavorites } from "utils/redux/reducer/reducer";
 
 import Container from "components/Container";
-import {
-  FavoriteButton,
-  HomeButton,
-  AddToFavorite,
-  LoadMore,
-  Favorite,
-} from "components/Button";
+import { LoadMore, Favorite } from "components/Button";
 import { Card } from "components/Card";
 import Loading from "components/Loading";
 
 function App(props) {
   // CONSTRUCTOR START
+  const dispatch = useDispatch([]);
   const [datas, setDatas] = useState([]);
   const [skeleton] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [loading, setLoading] = useState(true);
@@ -84,9 +79,11 @@ function App(props) {
       const parsedMovies = JSON.parse(getMovies);
       parsedMovies.push(movie);
       const temp = JSON.stringify(parsedMovies);
+      dispatch(setFavorites(parsedMovies));
       localStorage.setItem("favMovies", temp);
     } else {
       const temp = JSON.stringify([movie]);
+      dispatch(setFavorites([movie]));
       localStorage.setItem("favMovies", temp);
     }
   }

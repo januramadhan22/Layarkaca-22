@@ -20,7 +20,7 @@ function App(props) {
   const [skeleton] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
-  useTitle("Layar Kaca 12");
+  useTitle("Layar Kaca 22");
   // CONSTRUCTOR END
 
   useEffect(() => {
